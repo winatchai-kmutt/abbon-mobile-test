@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Center(
             child: GestureDetector(
               onTap: () {
@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                   valueListenable: controller,
                   builder: (context, value, _) {
                     return CircleAvatar(
-                      radius: 50,
+                      radius: 72,
                       backgroundImage:
                           controller.hasImage ? FileImage(value.image!) : null,
                       child: Visibility(
@@ -136,32 +136,53 @@ class _HomePageState extends State<HomePage> {
                   }),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Text(
             LocaleKeys.myName.tr(),
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 20),
+          Divider(color: Colors.white30),
           ListTile(
             leading: Icon(Icons.location_on),
             title: Text(LocaleKeys.currentLocation.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             onTap: onTapLocation,
           ),
+          Divider(color: Colors.white30),
           ListTile(
             leading: Icon(Icons.phone),
             title: Text(LocaleKeys.call.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             onTap: controller.openPhoneCall,
           ),
+          Divider(color: Colors.white30),
           ListTile(
             leading: Icon(Icons.mail),
             title: Text(LocaleKeys.mail.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             onTap: controller.openMail,
           ),
+          Divider(color: Colors.white30),
           ListTile(
             leading: Icon(Icons.message),
             title: Text(LocaleKeys.line.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             onTap: controller.openLine,
           ),
+          Divider(color: Colors.white30),
         ],
       ),
     );
@@ -280,7 +301,7 @@ class HomeContoller extends ValueNotifier<HomeValue> {
     }
     return null;
   }
-  // TODO android version test, maybe use storage
+
   Future<String?> getGalleryDenideMessage() async {
     final permission = await Permission.photos.request();
     if (permission.isDenied || permission.isPermanentlyDenied) {

@@ -37,11 +37,14 @@ class MainApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.lightGreen,
+      darkTheme: ThemeData.from(
+        colorScheme: ColorScheme.dark(
+          primary: Colors.amber,
+          onPrimary: Colors.white,
+          secondary: Colors.amber,
         ),
       ),
+      theme: ThemeData.dark(),
     );
   }
 }

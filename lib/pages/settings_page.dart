@@ -40,6 +40,7 @@ class SettingsPage extends StatelessWidget {
                   context.pop();
                 },
               ),
+              const Divider(height: 0),
               ListTile(
                 title: Text(LocaleKeys.englishLanguage.tr()),
                 onTap: () {
@@ -62,8 +63,14 @@ class SettingsPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          Divider(color: Colors.white30),
           ListTile(
+            leading: Icon(Icons.language),
             title: Text(LocaleKeys.language.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             subtitle: Text(
               _langCodeToFullLanguage(context.locale.languageCode).tr(),
             ),
@@ -71,10 +78,17 @@ class SettingsPage extends StatelessWidget {
               _onTapLanguage(context);
             },
           ),
+          Divider(color: Colors.white30),
           ListTile(
+            leading: Icon(Icons.notifications_active),
             title: Text(LocaleKeys.notification.tr()),
+            trailing: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.amber,
+            ),
             onTap: _onTapNotificationSettings,
           ),
+          Divider(color: Colors.white30),
         ],
       ),
     );

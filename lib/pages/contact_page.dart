@@ -21,10 +21,15 @@ class ContactPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        mini: true,
         onPressed: () {
           _showAddContactDialog(context);
         },
-        child: Icon(Icons.add_outlined),
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
+        ),
       ),
     );
   }
@@ -130,10 +135,12 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(16),
       child: TextField(
         controller: searchController,
         decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+          filled: true,
           labelText: LocaleKeys.search.tr(),
           suffixIcon: Visibility(
             visible: enableSuffixIcon,
@@ -197,8 +204,10 @@ class _ContactListState extends State<ContactList> {
             child: Column(
               children: [
                 Expanded(
-                  child: ListView.builder(
+                  child: ListView.separated(
                     itemCount: contacts.length,
+                    separatorBuilder: (BuildContext context, int index) =>
+                        Divider(color: Colors.white30,),
                     itemBuilder: (context, index) {
                       final contact = contacts[index];
                       return ListTile(
