@@ -1,5 +1,6 @@
 # Abbon Mobile Test with flutter
-by Winatchai Chanmontee
+- Send the test for consideration in applying for the Mobile Developer position.
+- by Winatchai Chanmontee
 
 ## Supported Platforms
 IOS and Android
