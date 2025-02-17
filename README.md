@@ -1,8 +1,8 @@
-# abbon_mobile_test
+# Abbon Mobile Test with flutter
+by Winatchai Chanmontee
 
-Abbon Mobile Test with flutter
-
-# IOS and Android
+## Supported Platforms
+IOS and Android
 
 ## Getting Started
 
