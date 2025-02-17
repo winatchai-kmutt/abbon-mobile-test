@@ -1,0 +1,26 @@
+name: copy_with_gen
+description: generates a copyWith method for classes marked with @copyWith annotation (generator)
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  analyzer: ^6.7.0
+  build: ^2.4.1
+  source_gen: ^1.5.0
+  jinja: ^0.6.0
+  copy_with:
+    path: ../../packages/copy_with
+
+dev_dependencies:
+  equatable: ^2.0.5
+  flutter_lints: ^4.0.0
+  build_runner: ">=1.11.5 <3.0.0"
+  test: ^1.20.1
+  source_gen_test: ^1.1.0
+  freezed: ^2.5.2
+
+assets:
+    - lib/templates/

@@ -1,0 +1,56 @@
+
+
+mixin {{ clazz['mixin_name'] }} {
+  {% for prop in clazz['properties'] %}
+  {{ prop['type'] }} get {{ prop['name'] }} => throw UnimplementedError();
+  {%- endfor %}
+
+  {{ clazz['name'] }} copyWith({
+    {% for prop in clazz['properties'] %}
+      {{ prop['type'] }} Function()? {{ prop['name'] }},
+    {%- endfor %}
+  }) {
+    throw UnimplementedError();
+  }
+}
+
+class {{ clazz['concrete_name'] }} extends Equatable implements {{ clazz['name'] }} {
+
+  const {{ clazz['concrete_name'] }}({
+    {% for prop in clazz['properties'] %}
+      {% if prop["is_required"] %} required {% endif %} this.{{ prop['name'] }},
+    {%- endfor %}
+  });
+
+  const {{ clazz['concrete_name'] }}.empty() :
+    {% for prop in clazz['properties'] %}
+      {{ prop['name'] }} = {{ prop['empty_value'] }} {% if loop.last %};{% else %},{% endif %}
+    {%- endfor %}
+
+  {% for prop in clazz['properties'] %}
+  @override
+  final {{ prop['type'] }} {{ prop['name'] }};
+  {%- endfor %}
+
+  @override
+  {{ clazz['name'] }} copyWith({
+    {% for prop in clazz['properties'] %}
+      {{ prop['type'] }} Function()? {{ prop['name'] }},
+    {%- endfor %}
+  }) {
+  return {{ clazz['name'] }}(
+    {% for prop in clazz['properties'] %}
+      {{ prop['name'] }}: {{ prop['name'] }} != null ? {{ prop['name'] }}() : this.{{ prop['name'] }},
+    {%- endfor %}
+    );
+  }
+
+  @override
+  List<Object?> get props => [
+    {% for prop in clazz['properties'] %}
+      {{ prop['name'] }},
+    {%- endfor %}
+  ];
+}
+
+

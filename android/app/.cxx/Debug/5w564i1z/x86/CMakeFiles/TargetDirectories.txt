@@ -1,0 +1,2 @@
+/Users/jimmywang/Desktop/JimmuJoe/abbon_mobile_test/android/app/.cxx/Debug/5w564i1z/x86/CMakeFiles/edit_cache.dir
+/Users/jimmywang/Desktop/JimmuJoe/abbon_mobile_test/android/app/.cxx/Debug/5w564i1z/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,13 @@
+extension {{ clazz['extension_name'] }} on {{ clazz['name'] }} {
+  {{ clazz['name'] }} copyWith({
+    {% for prop in clazz['properties'] %}
+      {{ prop['type'] }} Function()? {{ prop['name'] }},
+    {%- endfor %}
+  }) {
+  return {{ clazz['name'] }}(
+      {% for prop in clazz['properties'] %}
+        {{ prop['name'] }}: {{ prop['name'] }} != null ? {{ prop['name'] }}() : this.{{ prop['name'] }},
+      {%- endfor %}
+    );
+  }
+}
