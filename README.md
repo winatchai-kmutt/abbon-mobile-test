@@ -16,6 +16,3 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-
-Example from Iphone
-- ![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
